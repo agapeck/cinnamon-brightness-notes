@@ -423,3 +423,5 @@ Current behavior on this machine:
 - OSD is restored via explicit `org.Cinnamon.ShowOSD`
 - changes are Linux-user-local only
 - Windows dual-boot is unaffected
+
+END
