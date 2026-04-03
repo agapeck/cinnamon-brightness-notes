@@ -10,7 +10,7 @@ The current version also hardens the key-handling path against rapid repeated ta
 
 Replace default `XF86MonBrightnessUp` and `XF86MonBrightnessDown` behavior with:
 
-- finer brightness steps, here `2%`
+- finer brightness steps, here `1%`
 - no system package changes
 - no GRUB/kernel edits
 - no Cinnamon source edits
@@ -68,7 +68,7 @@ set -euo pipefail
 readonly DEST="org.cinnamon.SettingsDaemon.Power"
 readonly PATH_NAME="/org/cinnamon/SettingsDaemon/Power"
 readonly IFACE="org.cinnamon.SettingsDaemon.Power.Screen"
-readonly DEFAULT_STEP=2
+readonly DEFAULT_STEP=1
 readonly OSD_DEST="org.Cinnamon"
 readonly OSD_PATH="/org/Cinnamon"
 readonly OSD_IFACE="org.Cinnamon"
@@ -258,12 +258,12 @@ Two custom bindings were added:
 Commands used:
 
 ```bash
-gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Brightness Up 2%'
-gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command '/home/hp/.local/bin/cinnamon-brightness-step up 2'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ name 'Brightness Up 1%'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ command '/home/hp/.local/bin/cinnamon-brightness-step up 1'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom0/ binding "['XF86MonBrightnessUp']"
 
-gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Brightness Down 2%'
-gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command '/home/hp/.local/bin/cinnamon-brightness-step down 2'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ name 'Brightness Down 1%'
+gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ command '/home/hp/.local/bin/cinnamon-brightness-step down 1'
 gsettings set org.cinnamon.desktop.keybindings.custom-keybinding:/org/cinnamon/desktop/keybindings/custom-keybindings/custom1/ binding "['XF86MonBrightnessDown']"
 
 gsettings set org.cinnamon.desktop.keybindings custom-list "['custom0', 'custom1']"
@@ -419,7 +419,7 @@ If reproducing this on another Cinnamon system:
 
 Current behavior on this machine:
 
-- brightness keys change brightness in `2%` steps
+- brightness keys change brightness in `1%` steps
 - OSD is restored via explicit `org.Cinnamon.ShowOSD`
 - changes are Linux-user-local only
 - Windows dual-boot is unaffected
